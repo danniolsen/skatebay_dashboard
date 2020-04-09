@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import { ListItemIcon, ListItemText } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { useHistory } from "react-router-dom";
 import { mainNavigation } from "../../navigation/routes/navigation";
-import { Menu } from "react-feather";
 
 const drawerWidth = 240;
 
@@ -35,11 +35,19 @@ const SideBar = props => {
               return (
                 <ListItem
                   button
+                  //selected={active === proNav.path}
                   key={navItem.name}
-                  onClick={() => goToTab(navItem)}
+                  onClick={e => goToTab(navItem)}
                 >
-                  <Menu />
-                  <p>{navItem.name}</p>
+                  <ListItemIcon>
+                    <i
+                      className="material-icons"
+                      style={{ color: navItem.color }}
+                    >
+                      {navItem.icon}
+                    </i>
+                  </ListItemIcon>
+                  <ListItemText primary={navItem.name} />
                 </ListItem>
               );
             }
