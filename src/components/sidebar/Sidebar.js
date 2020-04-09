@@ -7,11 +7,12 @@ import { ListItemIcon, ListItemText } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { useHistory } from "react-router-dom";
 import { mainNavigation } from "../../navigation/routes/navigation";
+import logosmall from "../../assets/images/logo_small.png";
 
 const drawerWidth = 240;
 
 const SideBar = props => {
-  const classes = useStyles();
+  const s = useStyles();
   let history = useHistory();
 
   const goToTab = navItem => {
@@ -28,13 +29,17 @@ const SideBar = props => {
   return (
     <Drawer
       classes={{
-        paper: classes.drawerPaper
+        paper: s.drawerPaper
       }}
       variant="permanent"
-      open
     >
       <div>
-        <div className={classes.toolbar} />
+        <div className={s.toolbar}>
+          <div className={s.iconCon}>
+            <img className={s.icon} src={logosmall} alt="skatebay logo" />
+            <p className={s.iconTxt}>Skatebay</p>
+          </div>
+        </div>
         <Divider />
         <List>
           {mainNavigation.map((navItem, index) => {
@@ -72,5 +77,8 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth
   },
-  toolbar: theme.mixins.toolbar
+  toolbar: theme.mixins.toolbar,
+  iconCon: { padding: "9px 9px 0 9px" },
+  icon: { width: "40px", float: "left", marginTop: 5 },
+  iconTxt: { marginLeft: "63px", fontSize: 16 }
 }));
