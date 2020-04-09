@@ -15,7 +15,7 @@ const SideBar = props => {
   let history = useHistory();
 
   const goToTab = navItem => {
-    history.push(navItem.path);
+    history.push(navItem.path, navItem.name);
   };
 
   return (

@@ -18,7 +18,7 @@ const Dashboard = props => {
       <CssBaseline />
 
       <AppBar position="fixed" className={classes.header}>
-        <Header routeName={"route name"} />
+        <Header />
       </AppBar>
 
       <nav className={classes.drawer}>
