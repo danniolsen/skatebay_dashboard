@@ -14,7 +14,6 @@ const Header = props => {
       let routeStatus = history.location.pathname;
       const route = mainNavigation.find(({ path }) => path === routeStatus);
       setRouteData(route);
-      console.log(route);
     },
     [history.location]
   );

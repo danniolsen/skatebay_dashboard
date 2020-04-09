@@ -18,6 +18,13 @@ const SideBar = props => {
     history.push(navItem.path, navItem.name);
   };
 
+  const isSelected = navItem => {
+    let currentPath = history.location.pathname;
+    let navPath = navItem.path;
+
+    return currentPath === navPath ? "#f5f5f5" : "#FFF";
+  };
+
   return (
     <Drawer
       classes={{
@@ -34,8 +41,8 @@ const SideBar = props => {
             if (!navItem.redirect) {
               return (
                 <ListItem
+                  style={{ background: isSelected(navItem) }}
                   button
-                  //selected={active === proNav.path}
                   key={navItem.name}
                   onClick={e => goToTab(navItem)}
                 >

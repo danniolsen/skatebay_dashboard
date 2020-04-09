@@ -1,4 +1,3 @@
-import React from "react";
 import Statistics from "../../screens/StatisticsView";
 import Users from "../../screens/Users";
 import Moderation from "../../screens/Moderarion";
