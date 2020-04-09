@@ -20,7 +20,14 @@ const Header = props => {
 
   return (
     <div className={s.root}>
-      <p className={s.text}>{routeData.name}</p>
+      <div className={s.routeCon}>
+        <div className={s.iconCon}>
+          <i className="material-icons icon" style={{ color: routeData.color }}>
+            {routeData.icon}
+          </i>
+        </div>
+        <div className={s.routename}>{routeData.name}</div>
+      </div>
     </div>
   );
 };
@@ -29,5 +36,7 @@ export default Header;
 
 const useStyles = makeStyles(theme => ({
   root: { marginLeft: 240, height: 20, padding: 0 },
-  text: { padding: 0, margin: 0, color: "#34495e", fontSize: 17 }
+  routeCon: { padding: 0, margin: 0 },
+  iconCon: { float: "left", marginRight: 5, marginTop: 2, fontSize: 10 },
+  routename: { color: "#34495e", fontSize: 20, float: "left" }
 }));

@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import { ListItemIcon, ListItemText } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { useHistory } from "react-router-dom";
 import { mainNavigation } from "../../navigation/routes/navigation";
-import { Menu } from "react-feather";
 
 const drawerWidth = 240;
 
@@ -16,6 +16,13 @@ const SideBar = props => {
 
   const goToTab = navItem => {
     history.push(navItem.path, navItem.name);
+  };
+
+  const isSelected = navItem => {
+    let currentPath = history.location.pathname;
+    let navPath = navItem.path;
+
+    return currentPath === navPath ? "#f5f5f5" : "#FFF";
   };
 
   return (
@@ -34,12 +41,20 @@ const SideBar = props => {
             if (!navItem.redirect) {
               return (
                 <ListItem
+                  style={{ background: isSelected(navItem) }}
                   button
                   key={navItem.name}
-                  onClick={() => goToTab(navItem)}
+                  onClick={e => goToTab(navItem)}
                 >
-                  <Menu />
-                  <p>{navItem.name}</p>
+                  <ListItemIcon>
+                    <i
+                      className="material-icons"
+                      style={{ color: navItem.color }}
+                    >
+                      {navItem.icon}
+                    </i>
+                  </ListItemIcon>
+                  <ListItemText primary={navItem.name} />
                 </ListItem>
               );
             }
