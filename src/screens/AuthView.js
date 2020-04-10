@@ -25,7 +25,17 @@ function Auth(props) {
           <IconItem icon="notification_important" name="Moderation" />
           <IconItem icon="bug_report" name="Bug reports" />
         </section>
-        {/* - small text - icons for functionallity - ?longer text */}
+
+        <section className={s.smallText}>
+          <p className={s.tinyTxt}>
+            A dashboard tool for the Skatebay mobile application.
+          </p>
+          <p className={s.tinyTxt}>Metrics on users and spots.</p>
+          <p className={s.tinyTxt}>Moderation and content control</p>
+        </section>
+      </div>
+      <div className={s.devInfo}>
+        <p>Skatebay production - 2020</p>
       </div>
     </div>
   );
@@ -51,28 +61,27 @@ export default Auth;
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100vw",
-    height: "100vh",
     background: "#FFF"
   },
   leftCon: {
     width: "35%",
-    height: "100%",
+    height: "100vh",
     float: "left",
     textAlign: "center",
     background: "#C8D7D4",
-    paddingTop: "5%",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       height: "auto",
       paddingTop: "1%"
     }
   },
+  header: { marginTop: "20%" },
   headerTxt: { color: "#FFF", fontWeight: 100, fontSize: 30 },
   ball: {
     width: "10px",
     height: "10px",
     background: "#FFF",
-    margin: "auto",
+    margin: "20px auto",
     borderRadius: 7.5
   },
   section: {
@@ -95,16 +104,29 @@ const useStyles = makeStyles(theme => ({
   },
   icon: { padding: 5, width: 39, background: "#FFF", borderRadius: 10 },
   iconTxt: { color: "#FFF", marginTop: 7 },
+  smallText: { color: "#FFF", fontSize: 14, marginTop: "5%" },
+  tinyTxt: { marginTop: "5px" },
+
   // right
   rightCon: {
     width: "65%",
-    height: "100%",
+    height: "100vh",
     float: "right",
     background: "#F8F8F8",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       height: "auto"
     }
+  },
+  devInfo: {
+    position: "fixed",
+    bottom: 10,
+    right: 10,
+    padding: "10px 15px",
+    fontSize: 10,
+    color: "#FFF",
+    borderRadius: 5,
+    background: "rgba(000,000,000, 0.6)"
   }
 }));
 
