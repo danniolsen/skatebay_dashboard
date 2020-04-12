@@ -74,11 +74,13 @@ const SideBar = props => {
 export default SideBar;
 
 const useStyles = makeStyles(theme => ({
-  drawerPaper: {
-    width: drawerWidth
-  },
+  drawerPaper: { width: drawerWidth },
   toolbar: theme.mixins.toolbar,
-  iconCon: { padding: "9px 9px 0 9px" },
-  icon: { width: "40px", float: "left", marginTop: 5 },
-  iconTxt: { marginLeft: "63px", fontSize: 16 }
+  iconCon: { padding: "9px 20px" },
+  icon: { width: "30px", float: "left", marginTop: 8 },
+  iconTxt: {
+    paddingLeft: "50px",
+    paddingTop: "8px",
+    fontSize: 20
+  }
 }));

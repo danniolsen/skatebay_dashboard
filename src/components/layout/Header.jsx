@@ -37,6 +37,6 @@ export default Header;
 const useStyles = makeStyles(theme => ({
   root: { marginLeft: 240, height: 20, padding: 0 },
   routeCon: { padding: 0, margin: 0 },
-  iconCon: { float: "left", marginRight: 30, marginTop: 2, fontSize: 10 },
+  iconCon: { float: "left", marginRight: 15, marginTop: 2, fontSize: 10 },
   routename: { color: "#34495e", fontSize: 20, float: "left" }
 }));

@@ -7,7 +7,7 @@ import ShopsScreen from "../screens/ShopsScreen";
 const mainNavigation = [
   {
     path: "/",
-    name: "Application Statistics",
+    name: "Application - Statistics",
     navName: "Statistics",
     icon: "bar_chart",
     color: "#2980b9",
@@ -15,7 +15,7 @@ const mainNavigation = [
   },
   {
     path: "/users",
-    name: "User Profiles",
+    name: "Users - Profiles",
     navName: "Users",
     icon: "people_alt",
     color: "#16a085",
@@ -23,7 +23,7 @@ const mainNavigation = [
   },
   {
     path: "/shops",
-    name: "Shop Profiles",
+    name: "Skate Shop - Profiles",
     navName: "Shops",
     icon: "shopping_cart",
     color: "#9b59b6",
@@ -31,7 +31,7 @@ const mainNavigation = [
   },
   {
     path: "/moderation",
-    name: "Spot Moderation",
+    name: "Skatespot - Moderation",
     navName: "Moderation",
     icon: "notification_important",
     color: "#f39c12",
