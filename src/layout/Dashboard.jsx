@@ -6,7 +6,7 @@ import { mainNavigation } from "../navigation/navigation";
 import { Switch, Route } from "react-router-dom";
 import MainContent from "../components/layout/MainContent";
 import Header from "../components/layout/Header";
-import SideBar from "../components/sidebar/Sidebar";
+import SideBar from "../components/layout/Sidebar";
 
 const drawerWidth = 240;
 
