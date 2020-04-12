@@ -8,7 +8,8 @@ function createWindow() {
     show: false,
     fullscreenable: true,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      allowEval: false // This is the key!
     },
     minWidth: 800,
     minHeight: 540

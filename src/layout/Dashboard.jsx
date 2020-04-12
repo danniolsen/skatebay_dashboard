@@ -2,7 +2,7 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
-import { mainNavigation } from "../navigation/routes/navigation";
+import { mainNavigation } from "../navigation/navigation";
 import { Switch, Route } from "react-router-dom";
 import MainContent from "../components/layout/MainContent";
 import Header from "../components/layout/Header";

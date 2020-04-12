@@ -6,7 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import { ListItemIcon, ListItemText } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { useHistory } from "react-router-dom";
-import { mainNavigation } from "../../navigation/routes/navigation";
+import { mainNavigation } from "../../navigation/navigation";
 import logosmall from "../../assets/images/logo_small.png";
 
 const drawerWidth = 240;
@@ -48,7 +48,7 @@ const SideBar = props => {
                 <ListItem
                   style={{ background: isSelected(navItem) }}
                   button
-                  key={navItem.name}
+                  key={navItem.navName}
                   onClick={e => goToTab(navItem)}
                 >
                   <ListItemIcon>
@@ -59,7 +59,7 @@ const SideBar = props => {
                       {navItem.icon}
                     </i>
                   </ListItemIcon>
-                  <ListItemText primary={navItem.name} />
+                  <ListItemText primary={navItem.navName} />
                 </ListItem>
               );
             }
