@@ -3,9 +3,9 @@ import React from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 
-function Statistics(props) {
+function ShopsScreen(props) {
   let classes = useStyles();
-  return <div className={classes.root}>Statistics X</div>;
+  return <div className={classes.root}>ShopsScreen</div>;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -14,4 +14,4 @@ const useStyles = makeStyles(theme => ({
 
 //Statistics.defaultProps = {};
 //Statistics.propTypes = {};
-export default Statistics;
+export default ShopsScreen;
