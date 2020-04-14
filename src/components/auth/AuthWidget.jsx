@@ -108,6 +108,12 @@ function AuthWidget(props) {
         )}
 
         <div className={s.buttonCon}>
+          <div className={s.errorCon}>
+            {authError.error !== null && (
+              <p className={s.error}>{authError.error}</p>
+            )}
+          </div>
+
           <button
             onClick={() => signIn()}
             className={s.button}
@@ -116,8 +122,6 @@ function AuthWidget(props) {
             {loading.btn ? "loading" : "Sign in"}
           </button>
         </div>
-
-        {authError.error !== null && <p>{authError.error}</p>}
       </DefaultContainer>
     </div>
   );
@@ -166,7 +170,9 @@ const useStyles = makeStyles(theme => ({
     padding: "7px 20px",
     border: "1px solid #d6d6d6",
     borderRadius: 5
-  }
+  },
+  errorCon: { float: "left" },
+  error: { color: "#e74c3c", fontSize: 12, padding: "7px 5px" }
 }));
 
 //AuthWidget.defaultProps = {};
