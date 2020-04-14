@@ -105,5 +105,5 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-//Auth.defaultProps = {};
 //Auth.propTypes = {};
+//Auth.defaultProps = {};

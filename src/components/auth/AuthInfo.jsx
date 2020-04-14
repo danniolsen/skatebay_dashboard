@@ -1,6 +1,6 @@
 "use-strict";
 import React from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 
 function AuthInfo(props) {
@@ -86,5 +86,8 @@ const useStyles = makeStyles(theme => ({
   tinyTxt: { marginTop: "5px" }
 }));
 
+AuthInfo.propTypes = {
+  icon: PropTypes.string,
+  name: PropTypes.string
+};
 //AuthInfo.defaultProps = {};
-//AuthInfo.propTypes = {};

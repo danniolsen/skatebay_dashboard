@@ -1,6 +1,6 @@
 "use-strict";
 import React, { useState } from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import DefaultContainer from "../containers/DefaultContainer";
 
@@ -175,5 +175,18 @@ const useStyles = makeStyles(theme => ({
   error: { color: "#e74c3c", fontSize: 12, padding: "7px 5px" }
 }));
 
-//AuthWidget.defaultProps = {};
-//AuthWidget.propTypes = {};
+AuthWidget.propTypes = {
+  signInUser: PropTypes.func,
+  authData: PropTypes.func,
+  currentData: PropTypes.object,
+  loading: PropTypes.object,
+  authError: PropTypes.object,
+  btnInactive: PropTypes.bool,
+  btnStatus: PropTypes.func
+};
+AuthWidget.defaultProps = {
+  currentData: { email: "", password: "" },
+  loading: { btn: false, form: false },
+  authError: { error: null },
+  btnInactive: true
+};

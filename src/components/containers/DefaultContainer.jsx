@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/";
-
+import PropTypes from "prop-types";
 const DefaultContainer = props => {
   const s = useStyles();
   const { headline, children, footer, center } = props;
@@ -28,3 +28,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default DefaultContainer;
+
+DefaultContainer.propTypes = {
+  headline: PropTypes.string,
+  children: PropTypes.array.isRequired,
+  center: PropTypes.bool,
+  footer: PropTypes.object
+};
+
+DefaultContainer.defaultProps = {
+  headline: "No headline written",
+  center: false
+};
