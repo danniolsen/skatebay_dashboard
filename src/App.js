@@ -3,12 +3,14 @@ import { Router, Route, Switch } from "react-router-dom";
 import indexRoutes from "./navigation";
 import { history } from "./navigation/history";
 import AuthScreen from "./screens/AuthScreen";
+import Loading from "./screens/Loading";
 import firebase from "firebase/app";
 
 const App = props => {
   const [signedIn, setSignedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    /*firebase
+    firebase
       .auth()
       .signOut()
       .then(function() {
@@ -16,14 +18,18 @@ const App = props => {
       })
       .catch(function(error) {
         // An error happened.
-      });*/
+      });
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         setSignedIn(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1200);
       } else {
-        console.log("no user");
-        // No user is signed in.
+        setTimeout(() => {
+          setLoading(false);
+        }, 1200);
       }
     });
   }, []);
@@ -33,8 +39,10 @@ const App = props => {
   return (
     <Router history={history}>
       <Switch>
-        {!signedIn && <Route to="/auth" component={AuthScreen} />}
+        {loading && <Route to="/" component={Loading} />}
+        {!signedIn && !loading && <Route to="/auth" component={AuthScreen} />}
         {signedIn &&
+          !loading &&
           indexRoutes.map((item, key) => {
             return <Route to="/" component={item.component} key={key} />;
           })}
