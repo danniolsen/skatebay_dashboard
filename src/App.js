@@ -10,7 +10,7 @@ const App = props => {
   const [signedIn, setSignedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    firebase
+    /*firebase
       .auth()
       .signOut()
       .then(function() {
@@ -18,14 +18,19 @@ const App = props => {
       })
       .catch(function(error) {
         // An error happened.
-      });
+      });*/
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        setSignedIn(true);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1200);
+        firebase
+          .auth()
+          .currentUser.getIdToken(true)
+          .then(function(idToken) {
+            setSignedIn(true);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1200);
+          });
       } else {
         setTimeout(() => {
           setLoading(false);
