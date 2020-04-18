@@ -9,18 +9,10 @@ import firebase from "firebase/app";
 const App = props => {
   const [signedIn, setSignedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    /*firebase
-      .auth()
-      .signOut()
-      .then(function() {
-        //setSignedIn(false);
-      })
-      .catch(function(error) {
-        // An error happened.
-      });*/
 
+  useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
+      setLoading(true);
       if (user) {
         firebase
           .auth()
@@ -32,6 +24,7 @@ const App = props => {
             }, 1200);
           });
       } else {
+        setSignedIn(false);
         setTimeout(() => {
           setLoading(false);
         }, 1200);
@@ -44,12 +37,12 @@ const App = props => {
   return (
     <Router history={history}>
       <Switch>
-        {loading && <Route to="/" component={Loading} />}
+        {loading && <Route to="/auth" component={Loading} />}
         {!signedIn && !loading && <Route to="/auth" component={AuthScreen} />}
         {signedIn &&
           !loading &&
           indexRoutes.map((item, key) => {
-            return <Route to="/" component={item.component} key={key} />;
+            return <Route exact to="/" component={item.component} key={key} />;
           })}
       </Switch>
     </Router>

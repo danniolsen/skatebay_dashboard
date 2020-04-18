@@ -8,6 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import { useHistory } from "react-router-dom";
 import { mainNavigation } from "../../navigation/navigation";
 import logosmall from "../../assets/images/logo_small.png";
+import { SignOut } from "../../features/firebaseAuth";
 
 const drawerWidth = 240;
 
@@ -24,6 +25,12 @@ const SideBar = props => {
     let navPath = navItem.path;
 
     return currentPath === navPath ? "#f5f5f5" : "#FFF";
+  };
+
+  const signUserOut = async () => {
+    await SignOut().then(suc => {
+      history.push("/");
+    });
   };
 
   return (
@@ -66,6 +73,20 @@ const SideBar = props => {
             return null;
           })}
         </List>
+
+        <div className={s.signOutCon}>
+          <Divider />
+          <List>
+            <ListItem button onClick={e => signUserOut()}>
+              <ListItemIcon>
+                <i className="material-icons" style={{ color: "#34495e" }}>
+                  exit_to_app
+                </i>
+              </ListItemIcon>
+              <ListItemText primary="Sign out" />
+            </ListItem>
+          </List>
+        </div>
       </div>
     </Drawer>
   );
@@ -82,5 +103,10 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: "50px",
     paddingTop: "8px",
     fontSize: 20
+  },
+  signOutCon: {
+    position: "absolute",
+    width: "100%",
+    bottom: 0
   }
 }));

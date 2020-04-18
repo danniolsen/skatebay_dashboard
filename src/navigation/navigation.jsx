@@ -6,7 +6,7 @@ import ShopsScreen from "../screens/ShopsScreen";
 
 const mainNavigation = [
   {
-    path: "/",
+    path: "/statistics",
     name: "Application - Statistics",
     navName: "Statistics",
     icon: "bar_chart",
@@ -48,8 +48,10 @@ const mainNavigation = [
   {
     redirect: true,
     path: "/",
-    to: "/",
-    name: "Statistics"
+    to: "/statistics",
+    name: "Application - Statistics",
+    icon: "bar_chart",
+    color: "#2980b9"
   }
 ];
 

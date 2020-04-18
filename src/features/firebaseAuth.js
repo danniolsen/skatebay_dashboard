@@ -21,4 +21,17 @@ const GoogleAuth = userData => {
     });
 };
 
+const SignOut = () => {
+  return auth
+    .signOut()
+    .then(() => {
+      console.log("signed out");
+    })
+    .catch(error => {
+      console.log("could not sign out");
+      console.log(error);
+    });
+};
+
 export default GoogleAuth;
+export { SignOut };
